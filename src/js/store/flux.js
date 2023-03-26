@@ -1,6 +1,9 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			nombre: 'Jesus',
+			apellido: 'Araujo',
+			juntar: '',
 			demo: [
 				{
 					title: "FIRST",
@@ -24,6 +27,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
+
+			juntarNombre: () => {
+				const store = getStore() // Llamando a una función getStore() que devuelve un objeto con información del estado de la aplicación. (useStateGlobal)
+				const juntar = store.nombre + " " + store.apellido; // codigo de accion o cambios
+				setStore({ juntar: juntar }) // Llamando a una función setStore() pasandole un objeto con una propiedad juntar que tiene como valor la variable creada anteriormente
+				// Lo que hace setStore es actualizar el estado de la aplicación con el nuevo valor de juntar. previamente creada arriba en el store
+			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
